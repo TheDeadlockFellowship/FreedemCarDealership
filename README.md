@@ -98,3 +98,14 @@ The list of the scripts is the following:
 1. **insert_cars:** Inserts data about cars in the `CARS` table;
 2. **insert_users:** Inserts data about users in the `USERS` table;
 3. **insert_schedule:** Inserts data about the renting schedule in the `SCHEDULE` table;
+
+
+### Relational Schema
+
+**Cars**(<ins>Plate</ins>, Brand, Model, Color, Year, Notes)
+**OnBoardDiary**(<ins>Plate*</ins>,<ins>Ddate</ins>,Km_travelled, Gas_cost, Mechanical_wear, Notes)\
+**Schedule**(<ins>Car_plate*</ins>, <ins>User_id*</ins>, <ins>Start_time</ins>, <ins>End_time</ins>, Notes)\
+**Users**(<ins>Id</ins>, First_name, Last_name, Date_of_birth, Email, Phone_prefix, Phone_number)
+
+
+
