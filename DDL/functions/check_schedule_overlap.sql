@@ -7,7 +7,7 @@ $$
 BEGIN
 
 	-- Check if same car
-	RETURN r1.CAR_PLATE == r2.CAR_PLATE
+	RETURN r1.CAR_PLATE LIKE r2.CAR_PLATE
 		-- Check overlapping
 		AND (r1.START_TIME, r1.END_TIME) OVERLAPS (r2.START_TIME, r2.END_TIME);
 
