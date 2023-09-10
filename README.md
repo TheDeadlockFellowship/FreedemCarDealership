@@ -52,6 +52,11 @@ The db scripts are grouped by the following categories, each represented by a fo
 | **DML** | Contains the scripts for the insertion of the data                   |
 | **DQL** | Contains the scripts for the queries                                 |
 
+Moreover, there are additional folders that contain non-sql files related to the project:
+
+- **assets:** Contains the assets used in the project, such as an image of the ER diagram;
+- **generation:** Contains scripts used to randomly generate the data used.
+
 ### DDL
 
 The acronym stands from **Data Definition Language**,
@@ -60,11 +65,12 @@ the folder contains the scripts for the creation of all database objects.
 The scripts are further divided into sub-folders, each representing a database object:
 **tables**, **functions**, **triggers**.
 
-|     Tables     | Description                                                                         |
-|:--------------:|-------------------------------------------------------------------------------------|
-|   `cars.sql`   | Creates the `CARS` table, which contains information about cars                     |
-|  `users.sql`   | Creates the `USERS` table, which contains information about users                   |
-| `schedule.sql` | Creates the `SCHEDULE` table, which contains information about the renting schedule |
+|       Tables        | Description                                                                         |
+|:-------------------:|-------------------------------------------------------------------------------------|
+|     `cars.sql`      | Creates the `CARS` table, which contains information about cars                     |
+|     `users.sql`     | Creates the `USERS` table, which contains information about users                   |
+|   `schedule.sql`    | Creates the `SCHEDULE` table, which contains information about the renting schedule |
+| `onboard_diary.sql` | Creates the `ONBOARD_DIARY` table, which contains information about the car diary   |
 
 |          Functions           | Description                                                                          |
 |:----------------------------:|--------------------------------------------------------------------------------------|
@@ -98,14 +104,20 @@ The list of the scripts is the following:
 1. **insert_cars:** Inserts data about cars in the `CARS` table;
 2. **insert_users:** Inserts data about users in the `USERS` table;
 3. **insert_schedule:** Inserts data about the renting schedule in the `SCHEDULE` table;
+4. **insert_diary:** Inserts data about the on-board digital car diary in the `ONBOARD_DIARY` table;
 
 
-### Relational Schema
+## Relational Schema
 
-**Cars**(<ins>Plate</ins>, Brand, Model, Color, Year, Notes)
-**OnBoardDiary**(<ins>Plate*</ins>,<ins>Ddate</ins>,Km_travelled, Gas_cost, Mechanical_wear, Notes)\
-**Schedule**(<ins>Car_plate*</ins>, <ins>User_id*</ins>, <ins>Start_time</ins>, <ins>End_time</ins>, Notes)\
-**Users**(<ins>Id</ins>, First_name, Last_name, Date_of_birth, Email, Phone_prefix, Phone_number)
+The following is the relational schema of the database,
+with a picture of the ER diagram.
 
+1. **Cars**(<ins>Plate</ins>, Brand, Model, Color, Year, Notes)
 
+2. **Users**(<ins>Id</ins>, First_name, Last_name, Date_of_birth, Email, Phone_prefix, Phone_number)
 
+3. **Schedule**(<ins>Car_plate</ins>\*, <ins>User_id</ins>\*, <ins>Start_time</ins>, <ins>End_time</ins>, Notes)
+
+4. **OnBoardDiary**(<ins>Plate</ins>\*,<ins>Ddate</ins>,Km_travelled, Gas_cost, Mechanical_wear, Notes)
+
+![ER Diagram](./assets/er-diagram.jpg)
